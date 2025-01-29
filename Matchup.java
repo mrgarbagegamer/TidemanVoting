@@ -1,5 +1,6 @@
+import java.util.*;
 public class Matchup {
-    private Candidate firstCanadate;
+    private Candidate firstCandidate;
     private Candidate secondCandidate;
     private ArrayList<Integer> results = new ArrayList<Integer>();
 
