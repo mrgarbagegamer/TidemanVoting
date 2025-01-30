@@ -39,6 +39,28 @@ public class Matchup
         }
     }
 
+    public Candidate getLoser() 
+    {
+        int firstCandidateWins = 0;
+        int secondCandidateWins = 0;
+        for (int result : results) 
+        {
+            if (result == 1) {
+                firstCandidateWins++;
+            } else {
+                secondCandidateWins++;
+            }
+        }
+        if (firstCandidateWins < secondCandidateWins) 
+        {
+            return firstCandidate;
+        } 
+        else 
+        {
+            return secondCandidate;
+        }
+    }
+
     public double getWinPercentage()
     {
         Candidate winner = getWinner();
