@@ -1,5 +1,6 @@
 import java.util.*;
-public class Matchup {
+public class Matchup 
+{
     private Candidate firstCandidate;
     private Candidate secondCandidate;
     private ArrayList<Integer> results = new ArrayList<Integer>();
@@ -10,6 +11,7 @@ public class Matchup {
         this.secondCandidate = secondCandidate;
     }
 
+    // Adds a result to the matchup, with 1 corresponding to the first candidate winning and 2 corresponding to the second candidate winning.
     public void addResult(int result) 
     {
         results.add(result);
@@ -39,14 +41,28 @@ public class Matchup {
 
     public double getWinPercentage()
     {
-        int firstCandidateWins = 0;
-        for (int result : results) 
+        Candidate winner = getWinner();
+        int wins = 0;
+        if (winner.equals(firstCandidate))
         {
-            if (result == 1) 
+            for (int result : results) 
             {
-                firstCandidateWins++;
+                if (result == 1) 
+                {
+                    wins++;
+                }
             }
         }
-        return (double) firstCandidateWins / (results.size());
+        else
+        {
+            for (int result : results) 
+            {
+                if (result == 2) 
+                {
+                    wins++;
+                }
+            }
+        }
+        return (double) wins / (results.size());
     }
 }

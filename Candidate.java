@@ -1,4 +1,5 @@
-public class Candidate {
+public class Candidate 
+{
     private String name;
     private int wins;
     private int losses;
