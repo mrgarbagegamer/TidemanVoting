@@ -11,6 +11,16 @@ public class Matchup
         this.secondCandidate = secondCandidate;
     }
 
+    public Candidate getFirstCandidate() 
+    {
+        return firstCandidate;
+    }
+    
+    public Candidate getSecondCandidate() 
+    {
+        return secondCandidate;
+    }
+    
     // Adds a result to the matchup, with 1 corresponding to the first candidate winning and 2 corresponding to the second candidate winning.
     public void addResult(int result) 
     {
