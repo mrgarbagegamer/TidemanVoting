@@ -3,7 +3,7 @@ public class Matchup
 {
     private Candidate firstCandidate;
     private Candidate secondCandidate;
-    private ArrayList<Integer> results = new ArrayList<Integer>();
+    private ArrayList<Integer> votes = new ArrayList<Integer>();
 
     public Matchup(Candidate firstCandidate, Candidate secondCandidate) 
     {
@@ -22,18 +22,18 @@ public class Matchup
     }
     
     // Adds a result to the matchup, with 1 corresponding to the first candidate winning and 2 corresponding to the second candidate winning.
-    public void addResult(int result) 
+    public void addVote(int vote) 
     {
-        results.add(result);
+        votes.add(vote);
     }
 
     public Candidate getWinner() 
     {
         int firstCandidateWins = 0;
         int secondCandidateWins = 0;
-        for (int result : results) 
+        for (int vote : votes) 
         {
-            if (result == 1) {
+            if (vote == 1) {
                 firstCandidateWins++;
             } else {
                 secondCandidateWins++;
@@ -53,9 +53,9 @@ public class Matchup
     {
         int firstCandidateWins = 0;
         int secondCandidateWins = 0;
-        for (int result : results) 
+        for (int vote : votes) 
         {
-            if (result == 1) {
+            if (vote == 1) {
                 firstCandidateWins++;
             } else {
                 secondCandidateWins++;
@@ -77,9 +77,9 @@ public class Matchup
         int wins = 0;
         if (winner.equals(firstCandidate))
         {
-            for (int result : results) 
+            for (int vote : votes) 
             {
-                if (result == 1) 
+                if (vote == 1) 
                 {
                     wins++;
                 }
@@ -87,14 +87,14 @@ public class Matchup
         }
         else
         {
-            for (int result : results) 
+            for (int vote : votes) 
             {
-                if (result == 2) 
+                if (vote == 2) 
                 {
                     wins++;
                 }
             }
         }
-        return (double) wins / (results.size());
+        return (double) wins / (votes.size());
     }
 }

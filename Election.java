@@ -40,18 +40,18 @@ public class Election
         {
             if (matchup.getFirstCandidate() == candidate1 && matchup.getSecondCandidate() == candidate2)
             {
-                matchup.addResult(result);
+                matchup.addVote(result);
                 return;
             }
             else if (matchup.getFirstCandidate() == candidate2 && matchup.getSecondCandidate() == candidate1)
             {
                 if (result == 1)
                 {
-                    matchup.addResult(2);
+                    matchup.addVote(2);
                 }
                 else
                 {
-                    matchup.addResult(1);
+                    matchup.addVote(1);
                 }
                 return;
             }
