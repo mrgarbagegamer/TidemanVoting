@@ -1,9 +1,13 @@
 import java.util.*;
 public class Election 
 {
-    public static ArrayList<Matchup> createMatchups(ArrayList<Candidate> candidates)
+    private ArrayList<Candidate> candidates;
+    private ArrayList<Matchup> matchups;
+
+    public Election(ArrayList<Candidate> candidateList)
     {
-        ArrayList<Matchup> matchups = new ArrayList<Matchup>();
+        candidates = candidateList;
+        matchups = new ArrayList<Matchup>();
         for (int i = 0; i < candidates.size(); i++)
         {
             for (int j = i + 1; j < candidates.size(); j++)
@@ -11,10 +15,9 @@ public class Election
                 matchups.add(new Matchup(candidates.get(i), candidates.get(j)));
             }
         }
-        return matchups;
     }
 
-    public static void sortMatchups(ArrayList<Matchup> matchups)
+    public void sortMatchups(ArrayList<Matchup> matchups)
     {
         for (int i = 0; i < matchups.size(); i++)
         {
@@ -26,6 +29,31 @@ public class Election
                     matchups.set(i, matchups.get(j));
                     matchups.set(j, temp);
                 }
+            }
+        }
+    }
+
+    // A method that allows for the addition of votes to a matchup. It must be able to find a matchup based on the provided candidates and then add a vote to that matchup. A value of 1 should correspond to the first candidate winning and a value of 2 should correspond to the second candidate winning.
+    public void addVote(Candidate candidate1, Candidate candidate2, int result)
+    {
+        for (Matchup matchup : matchups)
+        {
+            if (matchup.getFirstCandidate() == candidate1 && matchup.getSecondCandidate() == candidate2)
+            {
+                matchup.addResult(result);
+                return;
+            }
+            else if (matchup.getFirstCandidate() == candidate2 && matchup.getSecondCandidate() == candidate1)
+            {
+                if (result == 1)
+                {
+                    matchup.addResult(2);
+                }
+                else
+                {
+                    matchup.addResult(1);
+                }
+                return;
             }
         }
     }
