@@ -24,9 +24,9 @@ public class Candidate
         return wins;
     }
     
-    public void setWins(int wins)
+    public void incrementWins()
     {
-        this.wins = wins;
+        wins++;
     }
 
     public int getLosses()
@@ -34,8 +34,8 @@ public class Candidate
         return losses;
     }
 
-    public void setLosses(int losses)
+    public void incrementLosses()
     {
-        this.losses = losses;
+        losses++;
     }
 }
